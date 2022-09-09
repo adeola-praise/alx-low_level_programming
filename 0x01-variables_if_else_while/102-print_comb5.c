@@ -34,6 +34,5 @@ int main(void)
 	}
 
 	puchar('\n');
-
 	return (0);
 }
