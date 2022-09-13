@@ -9,14 +9,14 @@
 
 int main(void)
 {
-	char str[9] = "_putchar";
+	char string[] = "_putchar";
 	int i;
 	
-	for(i = 0; i <= 9; i++)
+	for(i = 0; i < 8; i++)
 	{
-		_putchar(str[i]);
+		_putchar(string[i]);
 	}	
-	_putchar("\n");
+	_putchar('\n');
 
 	return (0);
 }
