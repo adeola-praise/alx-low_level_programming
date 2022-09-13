@@ -3,9 +3,9 @@ include "main.h"
 /**
  *  _abs - Computes the absolute value of an integer.
  *
- *  @n - the integer to be worked with
+ *  @n - the integer to be worked with.
  *
- *  Return: absolute value
+ *  Return: absolute value.
  */
 
 int _abs(int n)
