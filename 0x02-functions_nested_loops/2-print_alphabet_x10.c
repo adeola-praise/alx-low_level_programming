@@ -19,7 +19,6 @@ void print_alphabet_x10(void)
 		}
 
 		no_of_times++;
+		_putchar('\n');
 	}
-
-	_putchar('\n');
 }
