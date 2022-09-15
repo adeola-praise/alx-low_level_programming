@@ -1,8 +1,16 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
+/**
+ * File: main.h - header file for the program
+ *
+ * Auth - Adeola Praise
+ * Desc - contains all functions used
+ * Return: Always returns 0(success)
+ */
 
+int _putchar(char c);
+int main(void);
 int _isupper(int c);
 int _isdigit(int c);
 int mul(int a, int b);
