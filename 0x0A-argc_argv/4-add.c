@@ -3,15 +3,13 @@
 #include <string.h>
 
 /**
- * main - adds positive numbers.
+ * num_checker - checks if a given char is number or not
  *
- * @argc: the argument count, that is the number of arguments
- * @argv: the argument vector, an array of pointers to the arguments.
- *
- * Return: 1 if a number contains symbols. 0 otherwise.
+ * @a: char to be checked.
+ * Return: 1, if its a number, else 0
  */
 
-int main(int argc, char *argv[])
+int num_checker(char *a)
 {
 	int i, num, len;
 
