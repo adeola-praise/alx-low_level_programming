@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 int _strlen(char *str);
-char *strcopy (char *src, char *dest);
+char *strcopy(char *src, char *dest);
 
 /**
  * new_dog - creates a new dog.
@@ -31,7 +31,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	ptr->name = malloc(sizeof(char) * namelen);
-	ptr->owner = malloc(sizeof(char) * ownerlen);	
+	ptr->owner = malloc(sizeof(char) * ownerlen);
 
 	if ((*ptr).name == NULL)
 	{
@@ -41,7 +41,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	if (ptr->owner == NULL)
-	{	
+	{
 		free(ptr->name);
 		free(ptr->owner);
 		free(ptr);
@@ -49,15 +49,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	strcopy(name, ptr->name);
+	ptr->age = age;
 	strcopy(owner, ptr->owner);
 
-	return (ptr);	
+	return (ptr);
 }
 
 /**
  * _strlen - find the length of the string.
  * @str: the string.
- * 
+ *
  * Return: the length of the string.
  */
 
@@ -65,8 +66,8 @@ int _strlen(char *str)
 {
 	int i = 0;
 	int len = 0;
-	
-	for(i = 0; str[i] != '\0'; i++)
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		len++;
 	}
@@ -82,11 +83,11 @@ int _strlen(char *str)
  * Return: the copied string.
  */
 
-char *strcopy (char *src, char *dest)
+char *strcopy(char *src, char *dest)
 {
 	int i = 0;
-	
-	for(i = 0; src[i] != '\0'; i++)
+
+	for (i = 0; src[i] != '\0'; i++)
 	{
 		dest[i] = src[i];
 	}
