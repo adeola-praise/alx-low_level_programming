@@ -2,27 +2,78 @@
 #include "dog.h"
 #include <stdlib.h>
 
-
-/**
- * new_dog - a function that creates a new dog.
- * @name: the name of the dog.
- * @age: the age of the dog.
- * @owner: the owner of the dog.
- *
- * Return: Null if function fails and pointer to new dog if otherwise.
- */
+int _strlen(char *str);
+char *strcopy (char *src, char *dest);
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t dog1;
-	dog_t *ptr = &dog1;
+	char *namecpy;
+	char *ownercpy;
+	int namelen, ownerlen;
+	dog_t *ptr;
 
-	dog1.name = name;
-	dog1.age = age;
-	dog1.owner = owner;
+	namelen = _strlen(name) + 1;
+	ownerlen = _strlen(owner) + 1;
+
+	ptr = malloc(sizeof(dog_t));
+	namecpy = malloc(sizeof(char) * namelen);
+	ownercpy = malloc(sizeof(char) * ownerlen);
+
+	ptr->name = malloc(sizeof(char) * namelen);
+	ptr->owner = malloc(sizeof(char) * ownerlen);	
+
+	strcopy(name, namecpy);
+	strcopy(owner, ownercpy);
+
+	(*ptr).name = name;
+	(*ptr).age = age;
+	(*ptr).owner = owner;
 
 	if (ptr == NULL)
+	{
+		free(ptr);
 		return (NULL);
+	}
 
-	return (ptr);
+	if ((*ptr).name == NULL)
+	{
+		free(ptr->name);
+		free(ptr);
+		return (NULL);
+	}
+
+	if (ptr->owner == NULL)
+	{
+		free(ptr->owner);
+		free(ptr);
+		return (NULL);
+	}
+
+	return (ptr);	
+}
+
+int _strlen(char *str)
+{
+	int i = 0;
+	int len = 0;
+	
+	for(i = 0; str[i] != '\0'; i++)
+	{
+		len++;
+	}
+
+	return (len);
+}
+
+char *strcopy (char *src, char *dest)
+{
+	int i = 0;
+	
+	for(i = 0; src[i] != '\0'; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+
+	return (dest);
 }
