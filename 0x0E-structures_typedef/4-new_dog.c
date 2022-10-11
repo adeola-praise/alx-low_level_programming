@@ -5,10 +5,17 @@
 int _strlen(char *str);
 char *strcopy (char *src, char *dest);
 
+/**
+ * new_dog - creates a new dog.
+ * @name: the name of the dog.
+ * @age: age of the dog.
+ * @owner: owner of the dog.
+ *
+ * Return: a pointer to a struct
+ */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *namecpy;
-	char *ownercpy;
 	int namelen, ownerlen;
 	dog_t *ptr;
 
@@ -16,24 +23,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	ownerlen = _strlen(owner) + 1;
 
 	ptr = malloc(sizeof(dog_t));
-	namecpy = malloc(sizeof(char) * namelen);
-	ownercpy = malloc(sizeof(char) * ownerlen);
-
-	ptr->name = malloc(sizeof(char) * namelen);
-	ptr->owner = malloc(sizeof(char) * ownerlen);	
-
-	strcopy(name, namecpy);
-	strcopy(owner, ownercpy);
-
-	(*ptr).name = name;
-	(*ptr).age = age;
-	(*ptr).owner = owner;
 
 	if (ptr == NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
+
+	ptr->name = malloc(sizeof(char) * namelen);
+	ptr->owner = malloc(sizeof(char) * ownerlen);	
 
 	if ((*ptr).name == NULL)
 	{
@@ -43,14 +41,25 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	if (ptr->owner == NULL)
-	{
+	{	
+		free(ptr->name);
 		free(ptr->owner);
 		free(ptr);
 		return (NULL);
 	}
 
+	strcopy(name, ptr->name);
+	strcopy(owner, ptr->owner);
+
 	return (ptr);	
 }
+
+/**
+ * _strlen - find the length of the string.
+ * @str: the string.
+ * 
+ * Return: the length of the string.
+ */
 
 int _strlen(char *str)
 {
@@ -64,6 +73,14 @@ int _strlen(char *str)
 
 	return (len);
 }
+
+/**
+ * strcopy - copies a string.
+ * @src: the source
+ * @dest: the destination.
+ *
+ * Return: the copied string.
+ */
 
 char *strcopy (char *src, char *dest)
 {
